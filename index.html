@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Brainfxxk派生言語を簡単に作れるやつ</title>
+  </head>
+  <body>
+    <h1>Brainfxxk派生言語を簡単に作れるやつ</h1>
+    &#x3C;に対応するもの: <input type="text" id="p_d"><br>
+    &#x3E;に対応するもの: <input type="text" id="p_i"><br>
+    +に対応するもの: <input type="text"      id="i"><br>
+    -に対応するもの: <input type="text"      id="d"><br>
+    .に対応するもの: <input type="text"      id="o"><br>
+    ,に対応するもの: <input type="text"      id="i"><br>
+    [に対応するもの: <input type="text"      id="l"><br>
+    ]に対応するもの: <input type="text"      id="r"><br>
+    Brainfxxkのコード:<br>
+    <textarea id="src" style="width:300px;height:200px;"></textarea><br>
+    <button onclick="rep();">変換</button><br>↓<br>
+    結果:<br>
+    <textarea id="dst" style="width:300px;height:200px;"></textarea>
+  </body>
+  <script>
+    function rep() {
+      var p_d = document.getElementById("p_d").value;
+      var p_i = document.getElementById("p_i").value;
+      var i = document.getElementById("i").value;
+      var d = document.getElementById("d").value;
+      var o = document.getElementById("o").value;
+      var i = document.getElementById("i").value;
+      var l = document.getElementById("l").value;
+      var r = document.getElementById("r").value;
+      var src = document.getElementById("src").value;
+      src=src.replace(/\</g, p_d + " ");
+      src=src.replace(/\>/g, p_i + " ");
+      src=src.replace(/\+/g, i   + " ");
+      src=src.replace(/\-/g, d   + " ");
+      src=src.replace(/\./g, o   + " ");
+      src=src.replace(/\,/g, i   + " ");
+      src=src.replace(/\[/g, l   + " ");
+      src=src.replace(/\]/g, r   + " ");
+      document.getElementById("dst").innerHTML = src;
+    }
+  </script>
+</html>
